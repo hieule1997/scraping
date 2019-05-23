@@ -8,13 +8,36 @@
 #     https://doc.scrapy.org/en/latest/topics/settings.html
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-
+ITEM_PIPELINES = [
+    'scrapy_mysql_pipeline.MYSQLPipeline':300,
+]
 BOT_NAME = 'tutorial'
 
 SPIDER_MODULES = ['tutorial.spiders']
 NEWSPIDER_MODULE = 'tutorial.spiders'
 
+MYSQL_HOST = '127.0.0.1'
+MYSQL_DB = 'scrapy'
+MYSQL_TABLE = ''
+MYSQL_USER = 'scrapy'
+MYSQL_PASSWORD = '123456'
+MYSQL_PORT =3306
 
+
+CREATE TABLE crawl (
+    task_id INT AUTO_INCREMENT,
+    rpkhung TEXT,
+    lifetime TEXT,
+    Monitored TEXT,
+    Investment TEXT,
+    Options TEXT,
+    Forum TEXT,
+    status TEXT,
+    good TEXT,
+    bad TEXT,
+    Payout TEXT,
+    PRIMARY KEY (task_id)
+)
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'tutorial (+http://www.yourdomain.com)'
 
